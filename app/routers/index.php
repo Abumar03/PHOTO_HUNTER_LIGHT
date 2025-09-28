@@ -1,13 +1,22 @@
 <?php
 // ROUTER PRINCIPAL
 
+// ROUTE DES PHOTOGRAPHES
+// PATTERN: /?authors
+// CTRL: authorsController
+// ACTION: indexAction
+if (isset($_GET['authors'])):
+    include_once '../app/controllers/authorsController.php';
+    \App\Controllers\AuthorsController\indexAction($connexion);
+
 // ROUTE DES PHOTOS
 // PATTERN: /?photos
 // CTRL: photosController
 // ACTION: indexAction
-if (isset($_GET['photos'])):
+elseif (isset($_GET['photos'])):
     include_once '../app/controllers/photosController.php';
     \App\Controllers\PhotosController\indexAction($connexion);
+
 // ROUTE PAR DEFAUT
 // PATTERN: /
 // CTRL: pagesController
